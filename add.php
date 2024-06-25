@@ -11,7 +11,7 @@
     <title>EMS</title>
 </head>
 
-<body>
+<body style="background-color:#eff0f4;">
     <nav class="navbar navbar-expand-lg navbar-light fixed-top"
         style="background-color:white;border-bottom:2px black solid;box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); ">
         <div class="container-fluid">
@@ -37,23 +37,39 @@
         </div>
     </nav>
 
-    <form action="home.php" class="addemp-form">
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+    <div style="margin-top: 80px;">
+    <form style="margin-right:20%;margin-left:20%" action="home.php" class="addemp-form">
+    <h1 style="text-align:center;padding-top: 55px;" class="">Add Employ</h1>    
+    <div class="mb-3">
+        <label class="form-label">ID</label>
+            <input type="text" class="form-control" style="border-radius:8px;" placeholder="John321.." id="id">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+            <input type="text" class="form-control" style="border-radius:8px;" placeholder="John e.t.c" id="name">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Pseudo Id</label>
+            <input type="text" class="form-control" style="border-radius:8px;" placeholder="Jacob" id="pseudo-id">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Role</label>
+            <select class="form-select" style="border-radius:8px;" placeholder="Jacob" id="pseudo-id">
+                <option>Admin</option>
+                <option>User</option>
+            </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Sales</label>
+            <input type="number" class="form-control" style="border-radius:8px;" placeholder="325 (auto $)" id="name">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Password</label>
+            <input type="password" style="border-radius:8px;" class="form-control" id="password" placeholder="John23#!@4..">
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
     </form>
-
+    </div>
 
 
 
