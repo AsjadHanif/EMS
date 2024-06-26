@@ -15,7 +15,7 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top"
         style="background-color:white;border-bottom:2px black solid;box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); ">
         <div class="container-fluid">
-            <a class="navbar-brand my-0 ms-3" href="#">
+            <a class="navbar-brand my-0 ms-3" href="home.php">
                 <img class="pe-1" src="img/ems-logo.png" alt="" width="90" height="72"
                     class="d-inline-block align-text-center">
             </a>
@@ -27,10 +27,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="home.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Add Employ</a>
+                        <a class="nav-link" href="add.php">Add Employ</a>
                     </li>
                 </ul>
             </div>
@@ -38,36 +38,36 @@
     </nav>
 
     <div style="margin-top: 80px;">
-    <form style="margin-right:20%;margin-left:20%" action="home.php" class="addemp-form">
-    <h1 style="text-align:center;padding-top: 55px;" class="">Add Employ</h1>    
+    <form style="margin-right:20%;margin-left:20%" action="home.php" method="POST" class="addemp-form">
+    <h1 style="padding-top: 55px;" class="text-center fw-bold">Add Employ</h1>    
     <div class="mb-3">
         <label class="form-label">ID</label>
-            <input type="text" class="form-control" style="border-radius:8px;" placeholder="John321.." id="id">
+            <input type="text" class="form-control" style="border-radius:8px;" placeholder="John321.." name="user_id" id="user_id">
     </div>
     <div class="mb-3">
         <label class="form-label">Name</label>
-            <input type="text" class="form-control" style="border-radius:8px;" placeholder="John e.t.c" id="name">
+            <input type="text" class="form-control" style="border-radius:8px;" placeholder="John e.t.c" name="name" id="name">
     </div>
     <div class="mb-3">
         <label class="form-label">Pseudo Id</label>
-            <input type="text" class="form-control" style="border-radius:8px;" placeholder="Jacob" id="pseudo-id">
+            <input type="text" class="form-control" style="border-radius:8px;" placeholder="Jacob" name="pseudo_id" id="pseudo_id">
     </div>
     <div class="mb-3">
         <label class="form-label">Role</label>
-            <select class="form-select" style="border-radius:8px;" placeholder="Jacob" id="pseudo-id">
+            <select class="form-select" style="border-radius:8px;" placeholder="Jacob" name="role" id="role">
                 <option>Admin</option>
                 <option>User</option>
             </select>
     </div>
     <div class="mb-3">
         <label class="form-label">Sales</label>
-            <input type="number" class="form-control" style="border-radius:8px;" placeholder="325 (auto $)" id="name">
+            <input type="number" class="form-control" style="border-radius:8px;" placeholder="325 (auto $)" name="sales" id="sales">
     </div>
     <div class="mb-3">
         <label class="form-label">Password</label>
-            <input type="password" style="border-radius:8px;" class="form-control" id="password" placeholder="John23#!@4..">
+            <input type="password" style="border-radius:8px;" class="form-control" id="password" name="password" placeholder="John23#!@4..">
     </div>
-    <button type="submit" class="btn btn-primary">Add</button>
+    <button type="submit" name="add_record" value="add_record" class="btn btn-primary">Add</button>
     </form>
     </div>
 
