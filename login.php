@@ -12,8 +12,8 @@ include "conn.php";
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-">
-                
+            <div class="col-3">
+                <form class="form-control"></form>
             </div>
         </div>
     </div>
