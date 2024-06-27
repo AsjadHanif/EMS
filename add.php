@@ -1,10 +1,12 @@
+<?php
+include "conn.php";
+?>
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="main.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -30,16 +32,55 @@
                         <a class="nav-link active" aria-current="page" href="home.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="add.php">Add Employ</a>
+                        <a class="nav-link" href="add.php">Add Employee</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div style="margin-top: 80px;">
-    <form style="margin-right:20%;margin-left:20%" action="home.php" method="POST" class="addemp-form">
-    <h1 style="padding-top: 55px;" class="text-center fw-bold">Add Employ</h1>    
+    <div style="margin-top: 100px;">
+    <?php
+    
+if (isset($_POST['add_record'])) {
+    $user_id = $_POST["user_id"];
+    $name = $_POST["name"];
+    $pseudo_id = $_POST["pseudo_id"];
+    $role = $_POST["role"];
+    $sales = $_POST["sales"];
+    $password = $_POST["password"];
+
+    $qurey = "INSERT INTO ems (user_id,name,pseudo_id,sale,password,role)
+    VALUES ('$user_id','$name', '$pseudo_id','$$sales','$password','$role')";
+    $qurey_run = mysqli_query($conn, $qurey);
+    if ($qurey_run) {
+        header("location:{$hostname}/home.php");
+    } else {
+        echo '<div class="alert alert-danger" style="margin:0;padding:30px;">ID are already exsist.</div>';
+    }
+    
+    
+}
+        // if(isset($_POST['add_record'])) {
+        //     $user_id = mysqli_real_escape_string($conn,$_POST['user_id']);
+        //     $name = mysqli_real_escape_string($conn,$_POST['name']);
+
+        //     $sql = "SELECT user_id, username FROM ems WHERE user_id = '{$user_id}' AND name = '{$name}'";
+        //     $result = mysqli_query($conn,$sql) or die("result Query Failed.");
+        //     if(mysqli_num_rows($result) > 0){
+        //         while($row = mysqli_fetch_assoc($result)){
+                    
+        //             $_POST["name"] = $row['name'];
+        //             $_POST["user_id"] = $row['user_id'];
+        //             header("location: {$hostname}/home.php");
+        //         }
+        //     }else{
+        //         echo '<div class="alert alert-danger">Username and Password are not matched.</div>';
+        //     }
+        // }
+        ?>  
+    <form style="margin-right:20%;margin-left:20%" action="<?php $_SERVER['PHP_SELF']; ?>" method="POST" class="addemp-form">
+    <h1 style="padding-top: 5px;" class="text-center fw-bold">Add Employee</h1>    
     <div class="mb-3">
         <label class="form-label">ID</label>
             <input type="text" class="form-control" style="border-radius:8px;" placeholder="John321.." name="user_id" id="user_id">

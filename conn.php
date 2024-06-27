@@ -1,4 +1,7 @@
 <?php
+
+$hostname = "http://localhost/EMS/ems";
+
 $servername = "localhost";
 $username = "root";
 $password = "";

@@ -2,26 +2,6 @@
 
 include "conn.php";
 
-if (isset($_POST['add_record'])) {
-    $user_id = $_POST["user_id"];
-    $name = $_POST["name"];
-    $pseudo_id = $_POST["pseudo_id"];
-    $role = $_POST["role"];
-    $sales = $_POST["sales"];
-    $password = $_POST["password"];
-
-    $qurey = "INSERT INTO ems (user_id,name,pseudo_id,sale,password,role)
-    VALUES ('$user_id','$name', '$pseudo_id','$$sales','$password','$role')";
-
-    $qurey_run = mysqli_query($conn, $qurey);
-    // if ($qurey_run) {
-    //     echo "Done";
-    // } else {
-    //     echo "NOT Done";
-    // }
-    
-    
-}
 ?>
 
 
@@ -56,14 +36,14 @@ if (isset($_POST['add_record'])) {
                         <a class="nav-link active" aria-current="page" href="home.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="add.php">Add Employ</a>
+                        <a class="nav-link" href="add.php">Add Employee</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
-    <h1 style="margin-top: 130px;margin-bottom:30px;" class="text-center fw-bold">List of Emploies</h1>    
+    <div style="margin-top: 130px;">
+    <h1 style="margin-bottom:30px;" class="text-center fw-bold">List of Employs</h1>    
     <table class="table text-center table-bordered table-hover">
         <thead>
             <tr class="bg-primary text-light">
@@ -76,41 +56,34 @@ if (isset($_POST['add_record'])) {
             </tr>
         </thead>
         <tbody>
+            <?php 
+            $sql1 = "SELECT user_id,name,pseudo_id,sale,date FROM ems";
+            $sql_run = mysqli_query($conn,$sql1) or die("sql_run failed");
+
+            if (mysqli_num_rows($sql_run)>0){
+                while($row = mysqli_fetch_assoc($sql_run)) {
+            ?>
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
+                <th scope="row"><?php echo $row['user_id'] ?></th>
+                <td><?php echo $row['name'] ?></td>
+                <td><?php echo $row['pseudo_id'] ?></td>
+                <td><?php echo $row['sale'] ?></td>
+                <td><?php echo $row['date'] ?></td>
                 <td class="">
                     <a class="btn btn-sm btn-success me-2">Edit</a>
                     <a class="btn btn-sm btn-danger">Delete</a></a>
                 </td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>
-                    <a class="btn btn-sm btn-success me-2">Edit</a>
-                    <a class="btn btn-sm btn-danger">Delete</a></a>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry the Bird</td>
-                <td>Bird</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                <td>
-                    <a class="btn btn-sm btn-success me-2">Edit</a>
-                    <a class="btn btn-sm btn-danger">Delete</a></a>
-                </td>
-            </tr>
         </tbody>
+        
+            <?php 
+                }
+            }else {
+                echo "<h1 class='text-danger text-center'>No Employee Data Found.</h1>";
+            }
+            ?>
     </table>
+    </div> 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
