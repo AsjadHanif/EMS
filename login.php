@@ -13,7 +13,9 @@ include "conn.php";
     <div class="container">
         <div class="row">
             <div class="col-3">
-                <form class="form-control"></form>
+                <form class="form-control">
+                    <label class="control-label">Username</label>
+                </form>
             </div>
         </div>
     </div>
