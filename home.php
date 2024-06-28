@@ -86,7 +86,7 @@ include "conn.php";
                     if($_SESSION['role'] == '1'):?>
                     <a class="btn btn-sm btn-danger" id="delBtn">Delete</a></a>
                     <?php endif; ?>
-                    <?php if(!$_SESSION['role'] == '1'):?>
+                    <?php if($_SESSION['role'] == '0'):?>
                     <a class="btn btn-sm btn-danger disable" id="delBtn">Delete</a></a>
                     <?php endif; ?>
                 </td>
