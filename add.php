@@ -64,28 +64,10 @@ if (isset($_POST['add_record'])) {
     if ($qurey_run) {
         header("location:{$hostname}/home.php");
     } else {
-        echo '<div class="alert alert-danger" style="margin:0;padding:30px;">ID are already exsist.</div>';
+        echo '<div class="alert alert-danger" style="margin:0;padding:30px;">ID or Name are already exsists.</div>';
     }
     
-    
 }
-        // if(isset($_POST['add_record'])) {
-        //     $user_id = mysqli_real_escape_string($conn,$_POST['user_id']);
-        //     $name = mysqli_real_escape_string($conn,$_POST['name']);
-
-        //     $sql = "SELECT user_id, username FROM ems WHERE user_id = '{$user_id}' AND name = '{$name}'";
-        //     $result = mysqli_query($conn,$sql) or die("result Query Failed.");
-        //     if(mysqli_num_rows($result) > 0){
-        //         while($row = mysqli_fetch_assoc($result)){
-                    
-        //             $_POST["name"] = $row['name'];
-        //             $_POST["user_id"] = $row['user_id'];
-        //             header("location: {$hostname}/home.php");
-        //         }
-        //     }else{
-        //         echo '<div class="alert alert-danger">Username and Password are not matched.</div>';
-        //     }
-        // }
         ?>  
     <form style="margin-right:20%;margin-left:20%" action="<?php $_SERVER['PHP_SELF']; ?>" method="POST" class="addemp-form">
     <h1 style="padding-top: 5px;" class="text-center fw-bold">Add Employee</h1>    
