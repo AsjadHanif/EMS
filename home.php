@@ -87,7 +87,7 @@ if(!isset($_SESSION["name"])){
                     }
                     
                     if($_SESSION['role'] == '1'){ ?>
-                    <a class="btn btn-sm btn-danger" id="delBtn">Delete</a></a><a class="btn btn-sm btn-danger disable" id="delBtn">Delete</a></a>
+                    <a class="btn btn-sm btn-danger " id="delBtn">Delete</a></a><a class="btn btn-sm btn-danger disable" id="delBtn">Delete</a></a>
                     <?php
                     }
                     ?>
