@@ -36,7 +36,14 @@ include "conn.php";
                         <a class="nav-link active" aria-current="page" href="home.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="add.php">Add Employee</a>
+                        <a class="nav-link" id="addemp" href="add.php">Add Employee</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav me-4 p-3 d-flex">
+                    <li class="nav-item">
+                        <a href="logout.php">
+                            <button class="btn btn-outline-secondary" type="submit">Logout</button>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -57,7 +64,7 @@ include "conn.php";
         </thead>
         <tbody>
             <?php 
-            $sql1 = "SELECT user_id,name,pseudo_id,sale,date FROM ems";
+            $sql1 = "SELECT user_id,name,pseudo_id,sale,date,role FROM ems";
             $sql_run = mysqli_query($conn,$sql1) or die("sql_run failed");
 
             if (mysqli_num_rows($sql_run)>0){
@@ -70,23 +77,29 @@ include "conn.php";
                 <td><?php echo $row['sale'] ?></td>
                 <td><?php echo $row['date'] ?></td>
                 <td class="">
-                    <a class="btn btn-sm btn-success me-2">Edit</a>
-                    <a class="btn btn-sm btn-danger">Delete</a></a>
+                    <?php
+                    }
+                    }else {
+                        echo "<h1 class='text-danger text-center'>No Employee Data Found.</h1>";
+                    }
+                    
+                    if($_POST['role'] == '1'):?>
+                    <a class="btn btn-sm btn-danger" id="delBtn">Delete</a></a>
+                    <?php endif; ?>
+                    <?php if(!$_POST['role'] == '1'):?>
+                    <a class="btn btn-sm btn-danger disable" id="delBtn">Delete</a></a>
+                    <?php endif; ?>
                 </td>
             </tr>
         </tbody>
         
-            <?php 
-                }
-            }else {
-                echo "<h1 class='text-danger text-center'>No Employee Data Found.</h1>";
-            }
-            ?>
     </table>
     </div> 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    
+    
     </script>
 
 </body>

@@ -96,8 +96,8 @@ if (isset($_POST['add_record'])) {
     <div class="mb-3">
         <label class="form-label">Role</label>
             <select class="form-select" style="border-radius:8px;" placeholder="Jacob" name="role" id="role">
-                <option>Admin</option>
-                <option>User</option>
+                <option value="1">Admin</option>
+                <option value="0">User</option>
             </select>
     </div>
     <div class="mb-3">
