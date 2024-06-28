@@ -1,7 +1,10 @@
 <?php
-
 include "conn.php";
+session_start();
+if(!isset($_SESSION["name"])){
+    header("location: {$hostname}/login.php");
 
+}
 ?>
 
 
@@ -83,12 +86,11 @@ include "conn.php";
                         echo "<h1 class='text-danger text-center'>No Employee Data Found.</h1>";
                     }
                     
-                    if($row['role'] == '1'):?>
-                    <a class="btn btn-sm btn-danger" id="delBtn">Delete</a></a>
-                    <?php endif; ?>
-                    <?php if($row['role'] == '0'):?>
-                    <a class="btn btn-sm btn-danger disable" id="delBtn">Delete</a></a>
-                    <?php endif; ?>
+                    if($_SESSION['role'] == '1'){ ?>
+                    <a class="btn btn-sm btn-danger" id="delBtn">Delete</a></a><a class="btn btn-sm btn-danger disable" id="delBtn">Delete</a></a>
+                    <?php
+                    }
+                    ?>
                 </td>
             </tr>
         </tbody>
