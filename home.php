@@ -84,7 +84,7 @@ if(!isset($_SESSION["name"])){
                 <td class="">
                     <?php
                     if($_SESSION['role'] == '1'){ ?>
-                    <a class="btn btn-sm btn-danger " id="delBtn">Delete</a></a><a class="btn btn-sm btn-danger disable" id="delBtn">Delete</a></a>
+                    <a class="btn btn-sm btn-danger " id="delBtn" href='delete-user.php?id=<?php echo $row["user_id"]; ?>'>Delete</a>
                     <?php
                     }
                     ?>
