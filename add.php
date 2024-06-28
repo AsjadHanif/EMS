@@ -3,6 +3,9 @@ include "conn.php";
 session_start();
 if(!isset($_SESSION["name"])){
     header("location: {$hostname}/login.php");
+}
+if ($_SESSION['role'] == '0') {
+    header("location: {$hostname}/home.php");
 
 }
 ?>

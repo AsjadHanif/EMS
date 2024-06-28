@@ -38,9 +38,11 @@ if(!isset($_SESSION["name"])){
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="home.php">Home</a>
                     </li>
+                    <?php if ($_SESSION['role'] == 1){?>
                     <li class="nav-item">
                         <a class="nav-link" id="addemp" href="add.php">Add Employee</a>
                     </li>
+                    <?php } ?>
                 </ul>
                 <ul class="navbar-nav me-4 p-3 d-flex">
                     <li class="nav-item">
@@ -81,11 +83,6 @@ if(!isset($_SESSION["name"])){
                 <td><?php echo $row['date'] ?></td>
                 <td class="">
                     <?php
-                    }
-                    }else {
-                        echo "<h1 class='text-danger text-center'>No Employee Data Found.</h1>";
-                    }
-                    
                     if($_SESSION['role'] == '1'){ ?>
                     <a class="btn btn-sm btn-danger " id="delBtn">Delete</a></a><a class="btn btn-sm btn-danger disable" id="delBtn">Delete</a></a>
                     <?php
@@ -93,6 +90,13 @@ if(!isset($_SESSION["name"])){
                     ?>
                 </td>
             </tr>
+            <?php
+            }
+                    }else {
+                        echo "<h1 class='text-danger text-center'>No Employee Data Found.</h1>";
+                    }
+                    
+            ?>
         </tbody>
         
     </table>
