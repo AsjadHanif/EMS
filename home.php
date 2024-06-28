@@ -83,10 +83,10 @@ include "conn.php";
                         echo "<h1 class='text-danger text-center'>No Employee Data Found.</h1>";
                     }
                     
-                    if($_POST['role'] == '1'):?>
+                    if($_SESSION['role'] == '1'):?>
                     <a class="btn btn-sm btn-danger" id="delBtn">Delete</a></a>
                     <?php endif; ?>
-                    <?php if(!$_POST['role'] == '1'):?>
+                    <?php if(!$_SESSION['role'] == '1'):?>
                     <a class="btn btn-sm btn-danger disable" id="delBtn">Delete</a></a>
                     <?php endif; ?>
                 </td>
