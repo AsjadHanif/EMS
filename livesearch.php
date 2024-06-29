@@ -7,7 +7,7 @@ if (isset($_POST['input'])){
 
     $resultlive = mysqli_query($conn, $querylive) or die("Couldn't connect to");
 
-    if (mysqli_num_rows($result) > 0) {?>
+    if (mysqli_num_rows($resultlive) > 0) {?>
     
         <table id="table" class="table text-center table-bordered table-hover">
         <thead>
