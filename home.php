@@ -14,10 +14,24 @@ if(!isset($_SESSION["name"])){
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/3f4a0f7ca6.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <title>EMS</title>
+    <style>
+        #myInput {
+            background-image: url('img/search_icon.png');
+            background-position: 10px 10px;
+            background-repeat: no-repeat;
+            width: 20%;
+            font-size: 16px;
+            padding: 12px 20px 12px 50px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin: 0 0 12px 12px;
+        }
+    </style>
 </head>
 
 <body>
@@ -56,7 +70,10 @@ if(!isset($_SESSION["name"])){
     </nav>
     <div style="margin-top: 130px;">
     <h1 style="margin-bottom:30px;" class="text-center fw-bold">List of Employs</h1>    
-    <table class="table text-center table-bordered table-hover">
+    <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
+    <input type="text" id="myInput" class="form-control" name="input" placeholder="Search..">
+    </form>
+    <table id="table" class="table text-center table-bordered table-hover">
         <thead>
             <tr class="bg-primary text-light">
                 <th scope="col">ID</th>
@@ -103,11 +120,35 @@ if(!isset($_SESSION["name"])){
     </div> 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+        $("#myInput").keyup(function(){
+            var input = $(this).val();
+            // alert(input);
+            if (input != "") {
+                $.ajax({
+
+                    url: "livesearch.php",
+                    method: "POST",
+                    data: {input: input},
+
+                    success: function(data){
+                        $("#table").html(data);
+                        $("#table").css("display","block");
+
+                    }
+                });
+            }else{
+                $("#table").css("display","none");
+            }
+        });
+    });
     
     </script>
-
 </body>
 
 </html>
