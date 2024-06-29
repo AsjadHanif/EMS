@@ -3,7 +3,7 @@ include "conn.php";
 if (isset($_POST['input'])){
 
     $input = $_POST['input'];
-    $querylive = "SELECT * FROM ems WHERE id LIKE '{$input}%' Or name LIKE '{$input}%' OR pseudo_id LIKE '{$input}%' OR sale LIKE '{$input}%' OR date LIKE '{$input}%'";
+    $querylive = "SELECT * FROM ems";
 
     $resultlive = mysqli_query($conn, $querylive) or die("Couldn't connect to");
 
