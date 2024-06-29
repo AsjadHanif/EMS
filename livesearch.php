@@ -23,7 +23,7 @@ if (isset($_POST['input'])){
         <tbody>
             <?php
             while ($row = mysqli_fetch_assoc($resultlive)){
-                $id = $row['id'];
+                $id = $row['user_id'];
                 $name = $row['name'];
                 $pseudo_id = $row['pseudo_id']; 
                 $sale = $row['sale'];
