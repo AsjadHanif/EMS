@@ -20,7 +20,7 @@ session_start();
 if (isset($_POST['input'])){
 
     $input = $_POST['input'];
-    $querylive = "SELECT * FROM ems WHERE user_id LIKE '{$input}%' OR name LIKE '{$input}%' OR pseudo_id LIKE '{$input}%' OR sale LIKE '{$input}%' OR date LIKE '{$input}%' LIMIT 5";
+    $querylive = "SELECT * FROM ems WHERE user_id LIKE '{$input}%' OR name LIKE '{$input}%' OR pseudo_id LIKE '{$input}%' OR sale LIKE '{$input}%' OR date LIKE '{$input}%'";
 
     $resultlive = mysqli_query($conn, $querylive) or die("Couldn't connect to");
 
